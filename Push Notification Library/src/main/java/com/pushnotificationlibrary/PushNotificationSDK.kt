@@ -11,10 +11,10 @@ object PushNotificationSDK {
     fun initializeFirebase(context: Context, apiKey: String, ) {
         if (FirebaseApp.getApps(context).isEmpty()) {
             val options = FirebaseOptions.Builder()
-                .setApplicationId("1:93074134066:android:2a4baddf6c4e6c4659982b")
+                .setApplicationId("1:992052778259:android:490847258e7d584274f6e6")
                 .setApiKey(apiKey)
-                .setProjectId("push-notification-sdk-c8f7f")
-                .setGcmSenderId("93074134066")
+                .setProjectId("itsomni-notification")
+                .setGcmSenderId("992052778259")
                 .build()
 
             FirebaseApp.initializeApp(context, options)
