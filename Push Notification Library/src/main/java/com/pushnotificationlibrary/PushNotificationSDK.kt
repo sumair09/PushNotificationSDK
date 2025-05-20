@@ -10,16 +10,14 @@ object PushNotificationSDK {
 
     fun initialize(
         context: Context,
-        applicationId: String,
         apiKey: String,
-        projectId: String,
         onTokenReceived: (String) -> Unit
     ) {
         if (FirebaseApp.getApps(context).isEmpty()) {
             val options = FirebaseOptions.Builder()
-                .setApplicationId(applicationId)
+                .setApplicationId("1:93074134066:android:2a4baddf6c4e6c4659982b")
                 .setApiKey(apiKey)
-                .setProjectId(projectId)
+                .setProjectId("push-notification-sdk-c8f7f")
                 .build()
 
             FirebaseApp.initializeApp(context, options)
