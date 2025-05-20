@@ -6,8 +6,10 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import java.util.Random
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -46,7 +48,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setContentTitle(title ?: "New Message")
             .setContentText(message ?: "")
             .setAutoCancel(true)
-
-        notificationManager.notify(0, notificationBuilder.build())
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+        val notificationId = Random().nextInt(9999999) + 1
+        notificationManager.notify(notificationId, notificationBuilder.build())
     }
 }

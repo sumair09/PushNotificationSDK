@@ -8,16 +8,13 @@ import com.google.firebase.messaging.FirebaseMessaging
 
 object PushNotificationSDK {
 
-    fun initialize(
-        context: Context,
-        apiKey: String,
-        onTokenReceived: (String) -> Unit
-    ) {
+    fun initializeFirebase(context: Context, apiKey: String, ) {
         if (FirebaseApp.getApps(context).isEmpty()) {
             val options = FirebaseOptions.Builder()
                 .setApplicationId("1:93074134066:android:2a4baddf6c4e6c4659982b")
                 .setApiKey(apiKey)
                 .setProjectId("push-notification-sdk-c8f7f")
+                .setGcmSenderId("93074134066")
                 .build()
 
             FirebaseApp.initializeApp(context, options)
@@ -30,7 +27,6 @@ object PushNotificationSDK {
             }
             val token = task.result
             Log.d("PushNotificationSDK", "FCM Token: $token")
-            onTokenReceived(token)
         }
     }
 }
